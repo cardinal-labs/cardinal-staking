@@ -43,7 +43,7 @@ pub fn handler(ctx: Context<ReopenCtx>) -> Result<()> {
             if reward_distributor.max_supply == None {
                 return Err(error!(ErrorCode::MaxSupplyRequired));
             }
-            let remaining_tokens = reward_distributor.max_supply.unwrap() - reward_distributor.rewards_issued;
+            let remaining_tokens = reward_distributor.max_supply.unwrap().checked_sub(reward_distributor.rewards_issued).unwrap();
             let reward_distributor_token_account = &mut ctx.accounts.reward_distributor_token_account;
             let authority_token_account = &mut ctx.accounts.authority_token_account;
 

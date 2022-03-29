@@ -97,10 +97,7 @@ pub fn handler<'key, 'accounts, 'remaining, 'info>(ctx: Context<'key, 'accounts,
                 allowed = true
             };
         }
-        if !stake_pool.allowed_collections.is_empty()
-            && original_mint_metadata.collection != None
-            && stake_pool.allowed_collections.contains(&original_mint_metadata.collection.unwrap().key)
-        {
+        if !stake_pool.allowed_collections.is_empty() && original_mint_metadata.collection != None && stake_pool.allowed_collections.contains(&original_mint_metadata.collection.unwrap().key) {
             allowed = true
         }
         if !allowed {
