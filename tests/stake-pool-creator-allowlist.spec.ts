@@ -5,6 +5,7 @@ import {
   TransactionEnvelope,
 } from "@saberhq/solana-contrib";
 import type * as splToken from "@solana/spl-token";
+import type { BN } from "@project-serum/anchor";
 import * as web3 from "@solana/web3.js";
 import { expect } from "chai";
 
@@ -21,11 +22,11 @@ import {
   withCreatePool,
   withStake,
 } from "../src/programs/stakePool/transaction";
-import { createMasterEditionIxs, createMint, getPoolIdentifier } from "./utils";
+import { createMasterEditionIxs, createMint } from "./utils";
 import { getProvider } from "./workspace";
 
 describe("Create stake pool", () => {
-  const poolIdentifier = getPoolIdentifier();
+  let poolIdentifier: BN;
   const entryName = "name";
   const symbol = "symbol";
   const overlayText = "staking";
@@ -66,8 +67,7 @@ describe("Create stake pool", () => {
   it("Create Pool", async () => {
     const provider = getProvider();
     const transaction = new web3.Transaction();
-    await withCreatePool(transaction, provider.connection, provider.wallet, {
-      identifier: poolIdentifier,
+    [, , poolIdentifier] = await withCreatePool(transaction, provider.connection, provider.wallet, {
       overlayText: overlayText,
       allowedCreators: [originalMintAuthority.publicKey],
     });

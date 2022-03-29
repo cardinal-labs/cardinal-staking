@@ -26,11 +26,13 @@ export const initStakePool = (
   wallet: Wallet,
   params: {
     identifier: BN;
+    identifierId: PublicKey;
     stakePoolId: PublicKey;
     allowedCreators: PublicKey[];
     allowedCollections: PublicKey[];
     overlayText: string;
     imageUri: string;
+    authority: PublicKey;
   }
 ): TransactionInstruction => {
   const provider = new Provider(connection, wallet, {});
@@ -44,12 +46,14 @@ export const initStakePool = (
       identifier: params.identifier,
       overlayText: params.overlayText,
       imageUri: params.imageUri,
-      allowedCreators: params.allowedCreators,
       allowedCollections: params.allowedCollections,
+      allowedCreators: params.allowedCreators,
+      authority: params.authority,
     },
     {
       accounts: {
         stakePool: params.stakePoolId,
+        identifier: params.identifierId,
         payer: wallet.publicKey,
         systemProgram: SystemProgram.programId,
       },

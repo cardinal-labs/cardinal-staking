@@ -21,7 +21,7 @@ export const getRewardEntry = async (
 
   const parsed = await rewardDistributorProgram.account.rewardEntry.fetch(
     rewardEntryId
-  );
+  ) as RewardEntryData;
   return {
     parsed,
     pubkey: rewardEntryId,
@@ -43,7 +43,7 @@ export const getRewardDistributor = async (
 
   const parsed = await rewardDistributorProgram.account.rewardDistributor.fetch(
     rewardDistributorId
-  );
+  ) as RewardDistributorData;
   return {
     parsed,
     pubkey: rewardDistributorId,

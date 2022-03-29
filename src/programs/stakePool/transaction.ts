@@ -21,35 +21,42 @@ import { findRewardDistributorId } from "../rewardDistributor/pda";
 import { withRemainingAccountsForKind } from "../rewardDistributor/utils";
 import { initStakeEntry, initStakePool, stake, unstake } from "./instruction";
 import {
+  findIdentifierId,
   findStakeEntryId,
   findStakeEntryIdForPool,
   findStakePoolId,
 } from "./pda";
+import { getNextPoolIdentifier } from "./utils";
 
 export const withCreatePool = async (
   transaction: web3.Transaction,
   connection: web3.Connection,
   wallet: Wallet,
   params: {
-    identifier: BN;
     allowedCollections?: web3.PublicKey[];
     allowedCreators?: web3.PublicKey[];
     overlayText?: string;
     imageUri?: string;
   }
-): Promise<[web3.Transaction, web3.PublicKey]> => {
-  const [stakePoolId] = await findStakePoolId(params.identifier);
+): Promise<[web3.Transaction, web3.PublicKey, BN]> => {
+  let identifier = await getNextPoolIdentifier(connection)
+  const [[stakePoolId], [identifierId]] = await Promise.all([
+    findStakePoolId(identifier),
+    findIdentifierId()
+  ]);
   transaction.add(
     initStakePool(connection, wallet, {
-      identifier: params.identifier,
+      identifier: identifier,
+      identifierId: identifierId,
       stakePoolId: stakePoolId,
-      allowedCollections: params.allowedCollections || [],
       allowedCreators: params.allowedCreators || [],
+      allowedCollections: params.allowedCollections || [],
       overlayText: params.overlayText || "",
       imageUri: params.imageUri || "",
+      authority: wallet.publicKey,
     })
   );
-  return [transaction, stakePoolId];
+  return [transaction, stakePoolId, identifier];
 };
 
 export const withCreateEntry = async (

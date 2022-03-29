@@ -6,17 +6,9 @@ import {
   MasterEdition,
   Metadata,
 } from "@metaplex-foundation/mpl-token-metadata";
-import { BN } from "@project-serum/anchor";
+import BN from 'bn.js';
 import * as splToken from "@solana/spl-token";
 import * as web3 from "@solana/web3.js";
-
-export function getPoolIdentifier(): BN {
-  return new BN(getRandomInt(100000));
-}
-
-export function getRandomInt(max: number) {
-  return Math.floor(Math.random() * max);
-}
 
 export function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));

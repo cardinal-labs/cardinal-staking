@@ -41,7 +41,7 @@ pub fn handler(ctx: Context<CloseCtx>) -> Result<()> {
         }
         k if k == RewardDistributorKind::Treasury as u8 => {
             // give back remaining tokens from max supply
-            let remaining_tokens = reward_distributor.max_supply.unwrap() - reward_distributor.rewards_issued;
+            let remaining_tokens = ctx.accounts.reward_distributor_token_account.amount;
             let reward_distributor_token_account = &mut ctx.accounts.reward_distributor_token_account;
             let authority_token_account = &mut ctx.accounts.authority_token_account;
 

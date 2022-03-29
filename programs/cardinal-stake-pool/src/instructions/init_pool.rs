@@ -6,10 +6,10 @@ use {
 #[derive(AnchorSerialize, AnchorDeserialize)]
 pub struct InitPoolIx {
     identifier: u64,
-    allowed_collections: Vec<Pubkey>,
-    allowed_creators: Vec<Pubkey>,
     overlay_text: String,
     image_uri: String,
+    allowed_collections: Vec<Pubkey>,
+    allowed_creators: Vec<Pubkey>,
     authority: Pubkey,
 }
 
@@ -33,7 +33,8 @@ pub struct InitPoolCtx<'info> {
     )]
     identifier: Account<'info, Identifier>,
 
-    #[account(mut, constraint = is_authority(&payer.key()) @ ErrorCode::InvalidPoolAuthority)]
+    // #[account(mut, constraint = is_authority(&payer.key()) @ ErrorCode::InvalidPoolAuthority)]
+    #[account(mut)]
     payer: Signer<'info>,
     system_program: Program<'info, System>,
 }
@@ -49,6 +50,7 @@ pub fn handler(ctx: Context<InitPoolCtx>, ix: InitPoolIx) -> Result<()> {
     stake_pool.authority = ix.authority;
 
     let identifier = &mut ctx.accounts.identifier;
+    identifier.bump = *ctx.bumps.get("identifier").unwrap();
     identifier.count += 1;
 
     Ok(())

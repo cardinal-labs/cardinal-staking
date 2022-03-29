@@ -24,11 +24,11 @@ import {
   withStake,
   withUnstake,
 } from "../src/programs/stakePool/transaction";
-import { createMint, delay, getPoolIdentifier } from "./utils";
+import { createMint, delay } from "./utils";
 import { getProvider } from "./workspace";
 
 describe("Stake and claim rewards from treasury", () => {
-  const poolIdentifier = getPoolIdentifier();
+  let poolIdentifier: BN;
   const maxSupply = 100;
   const entryName = "name";
   const symbol = "symbol";
@@ -61,8 +61,7 @@ describe("Stake and claim rewards from treasury", () => {
   it("Create Pool", async () => {
     const provider = getProvider();
     const transaction = new web3.Transaction();
-    await withCreatePool(transaction, provider.connection, provider.wallet, {
-      identifier: poolIdentifier,
+    [, , poolIdentifier] = await withCreatePool(transaction, provider.connection, provider.wallet, {
       overlayText: overlayText,
     });
 

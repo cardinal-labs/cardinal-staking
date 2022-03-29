@@ -359,6 +359,10 @@ export type CardinalStakePool = {
         "kind": "struct",
         "fields": [
           {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
             "name": "count",
             "type": "u64"
           }
@@ -393,6 +397,14 @@ export type CardinalStakePool = {
             "type": "u64"
           },
           {
+            "name": "overlayText",
+            "type": "string"
+          },
+          {
+            "name": "imageUri",
+            "type": "string"
+          },
+          {
             "name": "allowedCollections",
             "type": {
               "vec": "publicKey"
@@ -403,14 +415,6 @@ export type CardinalStakePool = {
             "type": {
               "vec": "publicKey"
             }
-          },
-          {
-            "name": "overlayText",
-            "type": "string"
-          },
-          {
-            "name": "imageUri",
-            "type": "string"
           },
           {
             "name": "authority",
@@ -824,6 +828,10 @@ export const IDL: CardinalStakePool = {
         "kind": "struct",
         "fields": [
           {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
             "name": "count",
             "type": "u64"
           }
@@ -858,6 +866,14 @@ export const IDL: CardinalStakePool = {
             "type": "u64"
           },
           {
+            "name": "overlayText",
+            "type": "string"
+          },
+          {
+            "name": "imageUri",
+            "type": "string"
+          },
+          {
             "name": "allowedCollections",
             "type": {
               "vec": "publicKey"
@@ -868,14 +884,6 @@ export const IDL: CardinalStakePool = {
             "type": {
               "vec": "publicKey"
             }
-          },
-          {
-            "name": "overlayText",
-            "type": "string"
-          },
-          {
-            "name": "imageUri",
-            "type": "string"
           },
           {
             "name": "authority",

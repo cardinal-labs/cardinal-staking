@@ -35,6 +35,7 @@ pub struct StakePool {
 
 #[account]
 pub struct Identifier {
+    pub bump: u8,
     pub count: u64,
 }
 
