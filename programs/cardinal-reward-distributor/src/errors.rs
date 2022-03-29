@@ -23,5 +23,5 @@ pub enum ErrorCode {
     #[msg("Distributor is already open")]
     DistributorNotClosed,
     #[msg("Distributor is already closed")]
-    DistributorAlreadyClosed
+    DistributorAlreadyClosed,
 }
