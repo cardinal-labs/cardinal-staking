@@ -51,7 +51,7 @@
   "devDependencies": {
     "@project-serum/anchor": "^0.22.0",
     "@rushstack/eslint-patch": "^1.1.0",
-    "@saberhq/anchor-contrib": "^1.12.44",
+    "@saberhq/anchor-contrib": "^1.12.57",
     "@saberhq/chai-solana": "^1.12.44",
     "@saberhq/eslint-config": "^1.12.44",
     "@saberhq/solana-contrib": "^1.12.44",

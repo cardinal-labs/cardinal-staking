@@ -243,12 +243,12 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.1.1.tgz#782fa5da44c4f38ae9fd38e9184b54e451936118"
   integrity sha512-BUyKJGdDWqvWC5GEhyOiUrGNi9iJUr4CU0O2WxJL6QJhHeeA/NVBalH+FeK0r/x/W0rPymXt5s78TDS7d6lCwg==
 
-"@saberhq/anchor-contrib@^1.12.44", "@saberhq/anchor-contrib@^1.12.47", "@saberhq/anchor-contrib@^1.12.48", "@saberhq/anchor-contrib@^1.12.56":
-  version "1.12.56"
-  resolved "https://registry.yarnpkg.com/@saberhq/anchor-contrib/-/anchor-contrib-1.12.56.tgz#f74919e35367bfac847eb1d75fd4441a33cf8194"
-  integrity sha512-REr3AUT8wO+FdhrURa/ewiYFew/gqWEOcL4oCiZHxCu3I8yoblC8ChhbAG1bydknfwg5o+3NV5YWmQqFEP+ePg==
+"@saberhq/anchor-contrib@^1.12.47", "@saberhq/anchor-contrib@^1.12.48", "@saberhq/anchor-contrib@^1.12.56", "@saberhq/anchor-contrib@^1.12.57":
+  version "1.12.57"
+  resolved "https://registry.yarnpkg.com/@saberhq/anchor-contrib/-/anchor-contrib-1.12.57.tgz#e7dc65275bcbfb36433f97de4abe0d60b748aff5"
+  integrity sha512-MW8VI76s5yKRJRoLdJa67AzAtYLvCLtOMx28oAnPxUcrx3EaF8oXwM2B62Jl7wxlZxsDGaVhLVrVYeG2BnM0hQ==
   dependencies:
-    "@saberhq/solana-contrib" "^1.12.56"
+    "@saberhq/solana-contrib" "^1.12.57"
     eventemitter3 "^4.0.7"
     lodash.camelcase "^4.3.0"
     lodash.mapvalues "^4.6.0"
@@ -286,11 +286,12 @@
     eslint-plugin-unused-imports "^2.0.0"
     prettier "^2.6.0"
 
-"@saberhq/solana-contrib@^1.12.23", "@saberhq/solana-contrib@^1.12.44", "@saberhq/solana-contrib@^1.12.47", "@saberhq/solana-contrib@^1.12.48", "@saberhq/solana-contrib@^1.12.56":
-  version "1.12.56"
-  resolved "https://registry.yarnpkg.com/@saberhq/solana-contrib/-/solana-contrib-1.12.56.tgz#0472ba6960d9993c37808697d7afff5b63e11b14"
-  integrity sha512-b6Szv+XqJE9pFqQ6QfQluRyvQIXAdmLk/KrZ2Ks/XtQVMX2ZxdBf5mGozGNa8NzuzgeOzj/BQ8akbAazfll5dw==
+"@saberhq/solana-contrib@^1.12.23", "@saberhq/solana-contrib@^1.12.44", "@saberhq/solana-contrib@^1.12.47", "@saberhq/solana-contrib@^1.12.48", "@saberhq/solana-contrib@^1.12.56", "@saberhq/solana-contrib@^1.12.57":
+  version "1.12.57"
+  resolved "https://registry.yarnpkg.com/@saberhq/solana-contrib/-/solana-contrib-1.12.57.tgz#ca7e9689e3aede2292f45e3a4fd81370c680d81b"
+  integrity sha512-CzGAMkdi2aq1NzSy20zdJZhC67f8aEoCxBdh/RwXYuQiMX2QD6ZgbxMKJ8QEqPd4GXDJHsWpcz+z1iGobud3JA==
   dependencies:
+    "@solana/buffer-layout" "^4.0.0"
     "@types/promise-retry" "^1.1.3"
     "@types/retry" "^0.12.1"
     promise-retry "^2.0.1"
