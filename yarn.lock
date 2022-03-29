@@ -286,11 +286,12 @@
     eslint-plugin-unused-imports "^2.0.0"
     prettier "^2.6.0"
 
-"@saberhq/solana-contrib@^1.12.23", "@saberhq/solana-contrib@^1.12.44", "@saberhq/solana-contrib@^1.12.47", "@saberhq/solana-contrib@^1.12.48", "@saberhq/solana-contrib@^1.12.56":
-  version "1.12.56"
-  resolved "https://registry.yarnpkg.com/@saberhq/solana-contrib/-/solana-contrib-1.12.56.tgz#0472ba6960d9993c37808697d7afff5b63e11b14"
-  integrity sha512-b6Szv+XqJE9pFqQ6QfQluRyvQIXAdmLk/KrZ2Ks/XtQVMX2ZxdBf5mGozGNa8NzuzgeOzj/BQ8akbAazfll5dw==
+"@saberhq/solana-contrib@^1.12.23", "@saberhq/solana-contrib@^1.12.47", "@saberhq/solana-contrib@^1.12.48", "@saberhq/solana-contrib@^1.12.56", "@saberhq/solana-contrib@^1.12.57":
+  version "1.12.57"
+  resolved "https://registry.yarnpkg.com/@saberhq/solana-contrib/-/solana-contrib-1.12.57.tgz#ca7e9689e3aede2292f45e3a4fd81370c680d81b"
+  integrity sha512-CzGAMkdi2aq1NzSy20zdJZhC67f8aEoCxBdh/RwXYuQiMX2QD6ZgbxMKJ8QEqPd4GXDJHsWpcz+z1iGobud3JA==
   dependencies:
+    "@solana/buffer-layout" "^4.0.0"
     "@types/promise-retry" "^1.1.3"
     "@types/retry" "^0.12.1"
     promise-retry "^2.0.1"
