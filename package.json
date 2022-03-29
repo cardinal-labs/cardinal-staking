@@ -55,7 +55,7 @@
     "@saberhq/chai-solana": "^1.12.44",
     "@saberhq/eslint-config": "^1.12.44",
     "@saberhq/solana-contrib": "^1.12.44",
-    "@saberhq/token-utils": "^1.12.44",
+    "@saberhq/token-utils": "^1.12.57",
     "@saberhq/tsconfig": "^1.12.44",
     "@solana/web3.js": "^1.34.0",
     "@types/bn.js": "^5.1.0",
