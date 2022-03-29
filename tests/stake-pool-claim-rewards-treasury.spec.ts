@@ -61,9 +61,14 @@ describe("Stake and claim rewards from treasury", () => {
   it("Create Pool", async () => {
     const provider = getProvider();
     const transaction = new web3.Transaction();
-    [, , poolIdentifier] = await withCreatePool(transaction, provider.connection, provider.wallet, {
-      overlayText: overlayText,
-    });
+    [, , poolIdentifier] = await withCreatePool(
+      transaction,
+      provider.connection,
+      provider.wallet,
+      {
+        overlayText: overlayText,
+      }
+    );
 
     const txEnvelope = new TransactionEnvelope(
       SolanaProvider.init({

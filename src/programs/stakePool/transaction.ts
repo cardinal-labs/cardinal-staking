@@ -39,10 +39,10 @@ export const withCreatePool = async (
     imageUri?: string;
   }
 ): Promise<[web3.Transaction, web3.PublicKey, BN]> => {
-  let identifier = await getNextPoolIdentifier(connection)
+  const identifier = await getNextPoolIdentifier(connection);
   const [[stakePoolId], [identifierId]] = await Promise.all([
     findStakePoolId(identifier),
-    findIdentifierId()
+    findIdentifierId(),
   ]);
   transaction.add(
     initStakePool(connection, wallet, {

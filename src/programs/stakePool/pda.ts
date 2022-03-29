@@ -55,11 +55,9 @@ export const findStakeEntryId = async (
  * Finds the identifier id.
  * @returns
  */
- export const findIdentifierId = async (): Promise<[web3.PublicKey, number]> => {
+export const findIdentifierId = async (): Promise<[web3.PublicKey, number]> => {
   return web3.PublicKey.findProgramAddress(
-    [
-      utils.bytes.utf8.encode(IDENTIFIER_SEED),
-    ],
+    [utils.bytes.utf8.encode(IDENTIFIER_SEED)],
     STAKE_POOL_ADDRESS
   );
 };

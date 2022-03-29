@@ -1,7 +1,7 @@
 import { findAta } from "@cardinal/common";
+import type { BN } from "@project-serum/anchor";
 import { expectTXTable } from "@saberhq/chai-solana";
 import { SolanaProvider, TransactionEnvelope } from "@saberhq/solana-contrib";
-import type { BN } from "@project-serum/anchor";
 import * as splToken from "@solana/spl-token";
 import * as web3 from "@solana/web3.js";
 import { expect } from "chai";
@@ -60,9 +60,14 @@ describe("Stake and claim rewards", () => {
   it("Create Pool", async () => {
     const provider = getProvider();
     const transaction = new web3.Transaction();
-    [, , poolIdentifier] = await withCreatePool(transaction, provider.connection, provider.wallet, {
-      overlayText: overlayText,
-    });
+    [, , poolIdentifier] = await withCreatePool(
+      transaction,
+      provider.connection,
+      provider.wallet,
+      {
+        overlayText: overlayText,
+      }
+    );
 
     const txEnvelope = new TransactionEnvelope(
       SolanaProvider.init({

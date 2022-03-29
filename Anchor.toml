@@ -1,5 +1,5 @@
 anchor_version = "0.22.0"
-solana_version = "1.8.5"
+solana_version = "1.9.5"
 
 [scripts]
 test = "yarn mocha tests/*.spec.ts"
