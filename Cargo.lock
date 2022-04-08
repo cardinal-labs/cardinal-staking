@@ -1350,9 +1350,9 @@ checksum = "f2dd574626839106c320a323308629dcb1acfc96e32a8cba364ddc61ac23ee83"
 
 [[package]]
 name = "solana-frozen-abi"
-version = "1.10.5"
+version = "1.10.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e17ecbd84c712a42fe51d9a088bd1f13640043d985f8241db084f34c28259c8a"
+checksum = "e5c5a350c56c9ba93de02019913f933a20247b204c53fb123fc7aa17798c8832"
 dependencies = [
  "bs58 0.4.0",
  "bv",
@@ -1372,9 +1372,9 @@ dependencies = [
 
 [[package]]
 name = "solana-frozen-abi-macro"
-version = "1.10.5"
+version = "1.10.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2d1cb5313432c16acd168c8d20d275273671dfce8b99b474fac7c25f97e0f2b1"
+checksum = "28d8c3f56066cda42e47cd7bb222b500531571a1f028fafe6f78ecb129856952"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -1384,9 +1384,9 @@ dependencies = [
 
 [[package]]
 name = "solana-program"
-version = "1.10.5"
+version = "1.10.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "144703cdbe0116070949979ff0f5c08221d39ad839e1d00f8bfd69140207c05d"
+checksum = "e591a33ccd8b5540bb1fea1c09137d205cf00ae55336837e52e5952c67f442d1"
 dependencies = [
  "base64 0.13.0",
  "bincode",
@@ -1426,9 +1426,9 @@ dependencies = [
 
 [[package]]
 name = "solana-sdk-macro"
-version = "1.10.5"
+version = "1.10.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "aee0178dde56bb3ee1268a510f848fd42c35d4d9f71da57ced726eb4a3c2a95d"
+checksum = "7da4e2eef2a7b6cada2ffa2d379d99c8219928fdf5fa1c6505e3fee88e559519"
 dependencies = [
  "bs58 0.4.0",
  "proc-macro2",

@@ -22,7 +22,7 @@ default = []
 [dependencies]
 anchor-lang = { version = "0.22.0", features = ["init-if-needed"] }
 anchor-spl = "0.22.0"
-solana-program = "1.8.1"
+solana-program = "1.10.6"
 spl-token = { version = "3.1.1", features = ["no-entrypoint"] }
 cardinal-stake-pool = { version = "^0.0.6", path = "../cardinal-stake-pool", features = ["cpi"] }
 
