@@ -244,11 +244,11 @@
   integrity sha512-BUyKJGdDWqvWC5GEhyOiUrGNi9iJUr4CU0O2WxJL6QJhHeeA/NVBalH+FeK0r/x/W0rPymXt5s78TDS7d6lCwg==
 
 "@saberhq/anchor-contrib@^1.12.44", "@saberhq/anchor-contrib@^1.12.47", "@saberhq/anchor-contrib@^1.12.48", "@saberhq/anchor-contrib@^1.12.56":
-  version "1.12.56"
-  resolved "https://registry.yarnpkg.com/@saberhq/anchor-contrib/-/anchor-contrib-1.12.56.tgz#f74919e35367bfac847eb1d75fd4441a33cf8194"
-  integrity sha512-REr3AUT8wO+FdhrURa/ewiYFew/gqWEOcL4oCiZHxCu3I8yoblC8ChhbAG1bydknfwg5o+3NV5YWmQqFEP+ePg==
+  version "1.12.59"
+  resolved "https://registry.yarnpkg.com/@saberhq/anchor-contrib/-/anchor-contrib-1.12.59.tgz#9293594fb61aad34d88db069f44e3d125ee1a6d3"
+  integrity sha512-14q8Jvs8KtrN1W68otnpoSPkeGurXbK02/vtx5PulqrduIBPXUysAp1kptLtrim5A6Ggvo85xZzAiNkbZDzj2Q==
   dependencies:
-    "@saberhq/solana-contrib" "^1.12.56"
+    "@saberhq/solana-contrib" "^1.12.59"
     eventemitter3 "^4.0.7"
     lodash.camelcase "^4.3.0"
     lodash.mapvalues "^4.6.0"
@@ -286,11 +286,12 @@
     eslint-plugin-unused-imports "^2.0.0"
     prettier "^2.6.0"
 
-"@saberhq/solana-contrib@^1.12.23", "@saberhq/solana-contrib@^1.12.44", "@saberhq/solana-contrib@^1.12.47", "@saberhq/solana-contrib@^1.12.48", "@saberhq/solana-contrib@^1.12.56":
-  version "1.12.56"
-  resolved "https://registry.yarnpkg.com/@saberhq/solana-contrib/-/solana-contrib-1.12.56.tgz#0472ba6960d9993c37808697d7afff5b63e11b14"
-  integrity sha512-b6Szv+XqJE9pFqQ6QfQluRyvQIXAdmLk/KrZ2Ks/XtQVMX2ZxdBf5mGozGNa8NzuzgeOzj/BQ8akbAazfll5dw==
+"@saberhq/solana-contrib@^1.12.23", "@saberhq/solana-contrib@^1.12.44", "@saberhq/solana-contrib@^1.12.47", "@saberhq/solana-contrib@^1.12.48", "@saberhq/solana-contrib@^1.12.56", "@saberhq/solana-contrib@^1.12.59":
+  version "1.12.59"
+  resolved "https://registry.yarnpkg.com/@saberhq/solana-contrib/-/solana-contrib-1.12.59.tgz#7be4d4c9e56a4ecd76e89aad29809e6748fe041b"
+  integrity sha512-YXz3G3Ckx4I5vl5qWSoBxXn088UEaMMPpPLIKkg74FNU/VJGoeUF7Bp0xtraTb1ayO6XQHouOJ3L4tNF+ufVjg==
   dependencies:
+    "@solana/buffer-layout" "^4.0.0"
     "@types/promise-retry" "^1.1.3"
     "@types/retry" "^0.12.1"
     promise-retry "^2.0.1"
