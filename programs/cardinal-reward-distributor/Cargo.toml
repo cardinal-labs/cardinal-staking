@@ -20,7 +20,7 @@ cpi = ["no-entrypoint"]
 default = []
 
 [dependencies]
-anchor-lang = { version = "0.22.0", features = ["init-if-needed"] }
+anchor-lang = { version = "0.24.2", features = ["init-if-needed"] }
 anchor-spl = "0.22.0"
 solana-program = "1.8.1"
 spl-token = { version = "3.1.1", features = ["no-entrypoint"] }
