@@ -412,7 +412,7 @@ checksum = "14c189c53d098945499cdfa7ecc63567cf3886b3332b312a5b4585d8d3a6a610"
 
 [[package]]
 name = "cardinal-reward-distributor"
-version = "1.2.0"
+version = "1.2.3"
 dependencies = [
  "anchor-lang",
  "anchor-spl",
@@ -424,7 +424,7 @@ dependencies = [
 
 [[package]]
 name = "cardinal-stake-pool"
-version = "1.2.0"
+version = "1.2.3"
 dependencies = [
  "anchor-lang",
  "anchor-spl",
@@ -437,9 +437,9 @@ dependencies = [
 
 [[package]]
 name = "cardinal-token-manager"
-version = "1.2.0"
+version = "1.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "597b0086feb35bd11b99519844df6199ffe68928bdf34ae15cfa40a4c55e5a53"
+checksum = "021f456db8ee90bdeeafd04a19c1e155a10e6c9965bd088e62cbaf71cd1e28bd"
 dependencies = [
  "anchor-lang",
  "anchor-spl",
@@ -1346,10 +1346,11 @@ dependencies = [
 
 [[package]]
 name = "spl-associated-token-account"
-version = "1.0.3"
+version = "1.0.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "393e2240d521c3dd770806bff25c2c00d761ac962be106e14e22dd912007f428"
+checksum = "2b013067447a1396303ddfc294f36e3d260a32f8a16c501c295bcdc7de39b490"
 dependencies = [
+ "borsh",
  "solana-program",
  "spl-token",
 ]
