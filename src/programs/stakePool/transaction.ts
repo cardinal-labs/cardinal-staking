@@ -455,16 +455,16 @@ export const withUpdateStakePool = (
   transaction.add(
     updateStakePool(connection, wallet, {
       stakePoolId: params.stakePoolId,
-      requiresCreators: params.requiresCreators || [],
-      requiresCollections: params.requiresCollections || [],
-      requiresAuthorization: params.requiresAuthorization || false,
-      overlayText: params.overlayText || "STAKED",
-      imageUri: params.imageUri || "",
+      requiresCreators: params.requiresCreators,
+      requiresCollections: params.requiresCollections,
+      requiresAuthorization: params.requiresAuthorization,
+      overlayText: params.overlayText,
+      imageUri: params.imageUri,
       authority: wallet.publicKey,
-      resetOnStake: params.resetOnStake || false,
-      cooldownSeconds: params.cooldownSeconds || 0,
-      minStakeSeconds: params.minStakeSeconds || 0,
-      endDate: params.endDate || new BN(0),
+      resetOnStake: params.resetOnStake,
+      cooldownSeconds: params.cooldownSeconds,
+      minStakeSeconds: params.minStakeSeconds,
+      endDate: params.endDate,
     })
   );
   return [transaction, params.stakePoolId];

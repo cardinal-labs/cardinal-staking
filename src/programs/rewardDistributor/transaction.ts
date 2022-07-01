@@ -257,10 +257,10 @@ export const withUpdateRewardDistributor = async (
   return transaction.add(
     updateRewardDistributor(connection, wallet, {
       rewardDistributorId: rewardDistributorId,
-      defaultMultiplier: params.defaultMultiplier || new BN(1),
-      multiplierDecimals: params.multiplierDecimals || 0,
-      rewardAmount: params.rewardAmount || new BN(0),
-      rewardDurationSeconds: params.rewardDurationSeconds || new BN(0),
+      defaultMultiplier: params.defaultMultiplier,
+      multiplierDecimals: params.multiplierDecimals,
+      rewardAmount: params.rewardAmount,
+      rewardDurationSeconds: params.rewardDurationSeconds,
     })
   );
 };

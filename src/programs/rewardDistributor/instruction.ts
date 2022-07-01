@@ -232,10 +232,10 @@ export const updateRewardDistributor = (
   wallet: Wallet,
   params: {
     rewardDistributorId: PublicKey;
-    defaultMultiplier: BN;
-    multiplierDecimals: number;
-    rewardAmount: BN;
-    rewardDurationSeconds: BN;
+    defaultMultiplier?: BN;
+    multiplierDecimals?: number;
+    rewardAmount?: BN;
+    rewardDurationSeconds?: BN;
   }
 ): TransactionInstruction => {
   const provider = new AnchorProvider(connection, wallet, {});
@@ -247,10 +247,10 @@ export const updateRewardDistributor = (
 
   return rewardDistributorProgram.instruction.updateRewardDistributor(
     {
-      defaultMultiplier: params.defaultMultiplier,
-      multiplierDecimals: params.multiplierDecimals,
-      rewardAmount: params.rewardAmount,
-      rewardDurationSeconds: params.rewardDurationSeconds,
+      defaultMultiplier: params.defaultMultiplier || null,
+      multiplierDecimals: params.multiplierDecimals || null,
+      rewardAmount: params.rewardAmount || null,
+      rewardDurationSeconds: params.rewardDurationSeconds || null,
     },
     {
       accounts: {

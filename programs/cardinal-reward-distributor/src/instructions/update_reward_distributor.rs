@@ -5,10 +5,10 @@ use {
 
 #[derive(AnchorSerialize, AnchorDeserialize)]
 pub struct UpdateRewardDistributorIx {
-    pub default_multiplier: u64,
-    pub multiplier_decimals: u8,
-    pub reward_amount: u64,
-    pub reward_duration_seconds: u128,
+    pub default_multiplier: Option<u64>,
+    pub multiplier_decimals: Option<u8>,
+    pub reward_amount: Option<u64>,
+    pub reward_duration_seconds: Option<u128>,
 }
 
 #[derive(Accounts)]
@@ -22,9 +22,9 @@ pub struct UpdateRewardDistributorCtx<'info> {
 
 pub fn handler(ctx: Context<UpdateRewardDistributorCtx>, ix: UpdateRewardDistributorIx) -> Result<()> {
     let reward_distributor = &mut ctx.accounts.reward_distributor;
-    reward_distributor.default_multiplier = ix.default_multiplier;
-    reward_distributor.multiplier_decimals = ix.multiplier_decimals;
-    reward_distributor.reward_amount = ix.reward_amount;
-    reward_distributor.reward_duration_seconds = ix.reward_duration_seconds;
+    reward_distributor.default_multiplier = ix.default_multiplier.unwrap_or(reward_distributor.default_multiplier);
+    reward_distributor.multiplier_decimals = ix.multiplier_decimals.unwrap_or(reward_distributor.multiplier_decimals);
+    reward_distributor.reward_amount = ix.reward_amount.unwrap_or(reward_distributor.reward_amount);
+    reward_distributor.reward_duration_seconds = ix.reward_duration_seconds.unwrap_or(reward_distributor.reward_duration_seconds);
     Ok(())
 }
