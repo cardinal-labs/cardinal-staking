@@ -1,5 +1,5 @@
 export type CardinalRewardDistributor = {
-  version: "1.5.27";
+  version: "1.5.26";
   name: "cardinal_reward_distributor";
   instructions: [
     {
@@ -413,19 +413,27 @@ export type CardinalRewardDistributor = {
         fields: [
           {
             name: "defaultMultiplier";
-            type: "u64";
+            type: {
+              option: "u64";
+            };
           },
           {
             name: "multiplierDecimals";
-            type: "u8";
+            type: {
+              option: "u8";
+            };
           },
           {
             name: "rewardAmount";
-            type: "u64";
+            type: {
+              option: "u64";
+            };
           },
           {
             name: "rewardDurationSeconds";
-            type: "u128";
+            type: {
+              option: "u128";
+            };
           }
         ];
       };
@@ -537,7 +545,7 @@ export type CardinalRewardDistributor = {
 };
 
 export const IDL: CardinalRewardDistributor = {
-  version: "1.5.27",
+  version: "1.5.26",
   name: "cardinal_reward_distributor",
   instructions: [
     {
@@ -951,19 +959,27 @@ export const IDL: CardinalRewardDistributor = {
         fields: [
           {
             name: "defaultMultiplier",
-            type: "u64",
+            type: {
+              option: "u64",
+            },
           },
           {
             name: "multiplierDecimals",
-            type: "u8",
+            type: {
+              option: "u8",
+            },
           },
           {
             name: "rewardAmount",
-            type: "u64",
+            type: {
+              option: "u64",
+            },
           },
           {
             name: "rewardDurationSeconds",
-            type: "u128",
+            type: {
+              option: "u128",
+            },
           },
         ],
       },

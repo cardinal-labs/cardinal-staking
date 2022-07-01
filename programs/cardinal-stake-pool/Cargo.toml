@@ -1,6 +1,6 @@
 [package]
 name = "cardinal-stake-pool"
-version = "1.5.27"
+version = "1.5.26"
 description = "Cardinal stake pool"
 edition = "2021"
 homepage = "https://cardinal.so"
