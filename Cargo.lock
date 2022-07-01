@@ -412,7 +412,7 @@ checksum = "14c189c53d098945499cdfa7ecc63567cf3886b3332b312a5b4585d8d3a6a610"
 
 [[package]]
 name = "cardinal-reward-distributor"
-version = "1.5.26"
+version = "1.5.25"
 dependencies = [
  "anchor-lang",
  "anchor-spl",
@@ -424,7 +424,7 @@ dependencies = [
 
 [[package]]
 name = "cardinal-stake-pool"
-version = "1.5.26"
+version = "1.5.25"
 dependencies = [
  "anchor-lang",
  "anchor-spl",
