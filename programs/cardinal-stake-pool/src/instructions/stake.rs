@@ -39,11 +39,6 @@ pub struct StakeCtx<'info> {
 pub fn handler(ctx: Context<StakeCtx>, amount: u64) -> Result<()> {
     let stake_pool = &mut ctx.accounts.stake_pool;
     let stake_entry = &mut ctx.accounts.stake_entry;
-
-    if stake_pool.close_pool_date.is_some() && Clock::get().unwrap().unix_timestamp > stake_pool.close_pool_date.unwrap() {
-        return Err(error!(ErrorCode::StakePoolIsClosed));
-    }
-
     if stake_entry.cooldown_start_seconds.is_some() {
         return Err(error!(ErrorCode::CooldownSecondRemaining));
     }

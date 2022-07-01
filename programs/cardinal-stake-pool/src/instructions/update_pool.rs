@@ -11,7 +11,6 @@ pub struct UpdatePoolIx {
     reset_on_stake: Option<bool>,
     cooldown_seconds: Option<u32>,
     min_stake_seconds: Option<u32>,
-    close_pool_date: Option<i64>,
 }
 
 #[derive(Accounts)]
@@ -38,9 +37,6 @@ pub fn handler(ctx: Context<UpdatePoolCtx>, ix: UpdatePoolIx) -> Result<()> {
     }
     if ix.min_stake_seconds.is_some() {
         stake_pool.min_stake_seconds = ix.min_stake_seconds;
-    }
-    if ix.close_pool_date.is_some() {
-        stake_pool.close_pool_date = ix.close_pool_date;
     }
 
     Ok(())

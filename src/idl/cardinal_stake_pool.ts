@@ -633,12 +633,6 @@ export type CardinalStakePool = {
             type: {
               option: "u32";
             };
-          },
-          {
-            name: "closePoolDate";
-            type: {
-              option: "i64";
-            };
           }
         ];
       };
@@ -729,12 +723,6 @@ export type CardinalStakePool = {
             type: {
               option: "u32";
             };
-          },
-          {
-            name: "closePoolDate";
-            type: {
-              option: "i64";
-            };
           }
         ];
       };
@@ -816,12 +804,6 @@ export type CardinalStakePool = {
             name: "minStakeSeconds";
             type: {
               option: "u32";
-            };
-          },
-          {
-            name: "closePoolDate";
-            type: {
-              option: "i64";
             };
           }
         ];
@@ -948,11 +930,6 @@ export type CardinalStakePool = {
       code: 6023;
       name: "InvalidMintMetadata";
       msg: "Invalid mint metadata";
-    },
-    {
-      code: 6024;
-      name: "StakePoolIsClosed";
-      msg: "Stake pool is closed";
     }
   ];
 };
@@ -1593,12 +1570,6 @@ export const IDL: CardinalStakePool = {
               option: "u32",
             },
           },
-          {
-            name: "closePoolDate",
-            type: {
-              option: "i64",
-            },
-          },
         ],
       },
     },
@@ -1689,12 +1660,6 @@ export const IDL: CardinalStakePool = {
               option: "u32",
             },
           },
-          {
-            name: "closePoolDate",
-            type: {
-              option: "i64",
-            },
-          },
         ],
       },
     },
@@ -1775,12 +1740,6 @@ export const IDL: CardinalStakePool = {
             name: "minStakeSeconds",
             type: {
               option: "u32",
-            },
-          },
-          {
-            name: "closePoolDate",
-            type: {
-              option: "i64",
             },
           },
         ],
@@ -1907,11 +1866,6 @@ export const IDL: CardinalStakePool = {
       code: 6023,
       name: "InvalidMintMetadata",
       msg: "Invalid mint metadata",
-    },
-    {
-      code: 6024,
-      name: "StakePoolIsClosed",
-      msg: "Stake pool is closed",
     },
   ],
 };
