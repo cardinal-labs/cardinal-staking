@@ -6,11 +6,12 @@ import {
 } from "@saberhq/solana-contrib";
 import { sleep } from "@saberhq/token-utils";
 import type * as splToken from "@solana/spl-token";
-import type { PublicKey, Transaction } from "@solana/web3.js";
-import { Keypair } from "@solana/web3.js";
+import type { Transaction } from "@solana/web3.js";
+import { Keypair, PublicKey } from "@solana/web3.js";
 import { BN } from "bn.js";
 
 import { createStakePool, stake } from "../src";
+import { getStakePool } from "../src/programs/stakePool/accounts";
 import { createMasterEditionIxs, createMint } from "./utils";
 import { getProvider } from "./workspace";
 
@@ -19,7 +20,7 @@ describe("Create stake pool", () => {
   let originalMintTokenAccountId: PublicKey;
   let originalMint: splToken.Token;
   const originalMintAuthority = Keypair.generate();
-  const endDate = Date.now() / 1000 + 5;
+  const closePoolDate = Date.now() / 1000 + 5;
 
   before(async () => {
     const provider = getProvider();
@@ -58,7 +59,7 @@ describe("Create stake pool", () => {
     [transaction, stakePoolId] = await createStakePool(
       provider.connection,
       provider.wallet,
-      { endDate: new BN(endDate) }
+      { closePoolDate: new BN(closePoolDate) }
     );
 
     await expectTXTable(
@@ -72,6 +73,11 @@ describe("Create stake pool", () => {
   it("Stake", async () => {
     const provider = getProvider();
     await sleep(5000);
+
+    const pool = await getStakePool(
+      provider.connection,
+      new PublicKey(stakePoolId)
+    );
 
     await expectTXTable(
       new TransactionEnvelope(SolanaProvider.init(provider), [

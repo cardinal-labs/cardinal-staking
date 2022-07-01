@@ -40,7 +40,7 @@ pub fn handler(ctx: Context<StakeCtx>, amount: u64) -> Result<()> {
     let stake_pool = &mut ctx.accounts.stake_pool;
     let stake_entry = &mut ctx.accounts.stake_entry;
 
-    if stake_pool.end_date.is_some() && Clock::get().unwrap().unix_timestamp > stake_pool.end_date.unwrap() {
+    if stake_pool.close_pool_date.is_some() && Clock::get().unwrap().unix_timestamp > stake_pool.close_pool_date.unwrap() {
         return Err(error!(ErrorCode::StakePoolIsClosed));
     }
 

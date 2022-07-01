@@ -76,7 +76,7 @@ export const withInitStakePool = async (
     resetOnStake?: boolean;
     cooldownSeconds?: number;
     minStakeSeconds?: number;
-    endDate?: BN;
+    closePoolDate?: BN;
   }
 ): Promise<[web3.Transaction, web3.PublicKey]> => {
   const [identifierId] = await findIdentifierId();
@@ -107,7 +107,7 @@ export const withInitStakePool = async (
       resetOnStake: params.resetOnStake || false,
       cooldownSeconds: params.cooldownSeconds || null,
       minStakeSeconds: params.minStakeSeconds || null,
-      endDate: params.endDate || null,
+      closePoolDate: params.closePoolDate || null,
     })
   );
   return [transaction, stakePoolId];
@@ -449,7 +449,7 @@ export const withUpdateStakePool = (
     resetOnStake?: boolean;
     cooldownSeconds?: number;
     minStakeSeconds?: number;
-    endDate?: BN;
+    closePoolDate?: BN;
   }
 ): [web3.Transaction, web3.PublicKey] => {
   transaction.add(
@@ -464,7 +464,7 @@ export const withUpdateStakePool = (
       resetOnStake: params.resetOnStake,
       cooldownSeconds: params.cooldownSeconds,
       minStakeSeconds: params.minStakeSeconds,
-      endDate: params.endDate,
+      closePoolDate: params.closePoolDate,
     })
   );
   return [transaction, params.stakePoolId];
