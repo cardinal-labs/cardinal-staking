@@ -118,7 +118,7 @@ jobs:
       - run: cp -r tests/test-keypairs/* target/deploy
       - run: find . -type f -name "*" -exec sed -i'' -e "s/stkBL96RZkjY5ine4TvPihGqW8UHJfch2cokjAPzV8i/$(solana-keygen pubkey tests/test-keypairs/cardinal_stake_pool-keypair.json)/g" {} +
       - run: find . -type f -name "*" -exec sed -i'' -e "s/rwdNPNPS6zNvtF6FMvaxPRjzu2eC51mXaDT9rmWsojp/$(solana-keygen pubkey tests/test-keypairs/cardinal_reward_distributor-keypair.json)/g" {} +
-      - run: find . -type f -name "Anchor.toml" -exec sed -i'' -e "s/yarn mocha tests\/\*.spec.ts/yarn mocha tests\/\*.spec.ts --reporter mocha-junit-reporter --reporter-options mochaFile=.\/tests\/out.xml/g" {} +
+      - run: find . -type f -name "Anchor.toml" -exec sed -i'' -e "s/tests\/\*.spec.ts/tests\/\*.spec.ts --reporter mocha-junit-reporter --reporter-options mochaFile=.\/tests\/out.xml/g" {} +
 
       - name: Run tests
         run: solana-test-validator --url https://api.devnet.solana.com --clone metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s --clone PwDiXFxQsGra4sFFTT8r1QWRMd4vfumiWC1jfWNfdYT --clone mgr99QFMYByTqGPWmNqunV7vBLmWWXdSrHUfV8Jf3JM --clone ojLGErfqghuAqpJXE1dguXF7kKfvketCEeah8ig6GU3 --reset & echo $$! > validator.PID
@@ -133,13 +133,13 @@ jobs:
       #     name: Local Tests
       #     path: tests/*.json
       #     reporter: mocha-json
-      - name: Upload Test Results
+      - name: upload-integration-tests
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: Unit Test Results
           path: tests/out.xml
-      - name: Publish Unit Test Results
+      - name: publish-integration-tests
         uses: EnricoMi/publish-unit-test-result-action/composite@v1
         if: always()
         with:
