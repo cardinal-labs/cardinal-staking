@@ -1,5 +1,6 @@
 import { getBatchedMultipleAccounts } from "@cardinal/common";
 import * as metaplex from "@metaplex-foundation/mpl-token-metadata";
+import type { Connection } from "@solana/web3.js";
 import { PublicKey } from "@solana/web3.js";
 import fetch from "node-fetch";
 
@@ -27,6 +28,35 @@ const getMetadataForPoolTokens = async (
     await getActiveStakeEntriesForPool(connection, stakePoolId)
   ).map((entry) => entry.parsed.originalMint);
 
+  // find metadata
+  const [metadata, metaplexData] = await fetchMetadata(connection, mintIds);
+
+  if (metadataKeys.length === 0) {
+    console.log("No metadataKeys provided, ending...");
+    return;
+  }
+
+  for (const [i, md] of metadata.entries()) {
+    const attrs = md.attributes;
+    console.log(`Mint ID: ${Object.keys(metaplexData)[i]!}`);
+    for (const attrKey of metadataKeys) {
+      const foundAttr = attrs.find((trait) => attrKey === trait.trait_type);
+      if (foundAttr) {
+        console.log(`${attrKey}: ${foundAttr.value}`);
+      } else {
+        console.log(`Key ${attrKey} not found for mint`);
+      }
+    }
+    console.log("\n");
+  }
+};
+
+export const fetchMetadata = async (
+  connection: Connection,
+  mintIds: PublicKey[]
+): Promise<
+  [Metadata[], { [mintId: string]: { pubkey: PublicKey; uri: string } }]
+> => {
   // lookup metaplex data
   const metaplexIds = await Promise.all(
     mintIds.map(
@@ -68,25 +98,7 @@ const getMetadataForPoolTokens = async (
       fetch(data.uri).then(async (res) => (await res.json()) as Metadata)
     )
   );
-
-  if (metadataKeys.length === 0) {
-    console.log("No metadataKeys provided, ending...");
-    return;
-  }
-
-  for (const [i, md] of metadata.entries()) {
-    const attrs = md.attributes;
-    console.log(`Mint ID: ${Object.keys(metaplexData)[i]!}`);
-    for (const attrKey of metadataKeys) {
-      const foundAttr = attrs.find((trait) => attrKey === trait.trait_type);
-      if (foundAttr) {
-        console.log(`${attrKey}: ${foundAttr.value}`);
-      } else {
-        console.log(`Key ${attrKey} not found for mint`);
-      }
-    }
-    console.log("\n");
-  }
+  return [metadata, metaplexData];
 };
 
 const metadataKeys: string[] = [];
